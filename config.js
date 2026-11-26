@@ -2,5 +2,5 @@
 window.GM_CONFIG = {
   static: true,
   contentDir: 'content/',
-  chatUrl: ""
+  chatUrl: "https://1542147901-lmtskxj36f.ap-guangzhou.tencentscf.com"
 };
