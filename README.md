@@ -24,11 +24,14 @@ git add -A && git commit -m "更新内容" && git push
 
 ## AI 问答怎么工作
 
-页面是纯静态的，放不了 API Key。右下角的「闪闪」请求一个 Cloudflare Worker，
-Key 只存在 Worker 的环境变量里。Worker 代码在本地 `校园导览/worker/chat-proxy.js`。
+页面是纯静态的，放不了 API Key。右下角的「闪闪」请求一个**腾讯云函数**，
+Key 只存在函数的环境变量里。函数代码在本地 `校园导览/scf/index.js`。
 
-Worker 的知识库直接从这个仓库的 `content/<lang>.json` 读取，
+函数的知识库直接从这个仓库的 `content/<lang>.json` 读取，
 所以**改了页面文案，AI 的回答自动跟着变**，不用另维护一份资料。
+
+> 为什么不用 Cloudflare：`workers.dev` 在国内被 DNS 污染（解析到 Facebook 的 IP），校园网打不开。
+> 腾讯云函数自带的公网地址国内正常访问，实测 1～2 秒出答案。
 
 ## 本地预览
 
