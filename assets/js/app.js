@@ -592,6 +592,18 @@
       aiBullet('assistant', aiGet('hello', ''));
       aiRenderSugs(true);
     }
+    // 线上版还没接 AI 代理：直接说明，别让访客发了才看到报错
+    if (CFG.static && !CFG.chatUrl) {
+      const ta = $('#aiText');
+      ta.disabled = true;
+      ta.placeholder = aiGet('note', '') || '';
+      $('#aiSend').disabled = true;
+      const tip = document.createElement('p');
+      tip.className = 'ai-offnote';
+      tip.textContent = aiGet('err', '');
+      $('#aiSugs').hidden = true;
+      $('#aiLog').appendChild(tip);
+    }
     setTimeout(() => { try { $('#aiText').focus({ preventScroll: true }); } catch (e) {} }, 140);
   }
 

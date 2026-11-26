@@ -1509,3 +1509,16 @@ html[dir="rtl"] .ai-fab-tip { right: auto; left: calc(100% + 12px); }
 @media (prefers-reduced-motion: reduce) {
   .ai-ring, .ai-spark, .ai-fab.is-nudge, .ai-panel, .ai-msg, .ai-bubble.streaming::after { animation: none !important; }
 }
+
+/* AI 未接通时的说明条（仅静态托管、未配代理时出现） */
+.ai-offnote {
+  flex: 0 0 auto;
+  margin: 2px 0 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: #fdf1ef;
+  color: #a63a2e;
+  font-size: 12.5px;
+  line-height: 1.6;
+  text-align: center;
+}
