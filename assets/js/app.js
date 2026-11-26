@@ -596,13 +596,15 @@
     if (CFG.static && !CFG.chatUrl) {
       const ta = $('#aiText');
       ta.disabled = true;
-      ta.placeholder = aiGet('note', '') || '';
+      ta.placeholder = aiGet('note', '') || 'AI 暂未开启';
       $('#aiSend').disabled = true;
-      const tip = document.createElement('p');
-      tip.className = 'ai-offnote';
-      tip.textContent = aiGet('offline', aiGet('err', ''));
       $('#aiSugs').hidden = true;
-      $('#aiLog').appendChild(tip);
+      if (!$('.ai-offnote')) {
+        const tip = document.createElement('p');
+        tip.className = 'ai-offnote';
+        tip.textContent = aiGet('offline', '') || '线上版 AI 正在接通中，先用导览逛逛吧～';
+        $('#aiLog').appendChild(tip);
+      }
     }
     setTimeout(() => { try { $('#aiText').focus({ preventScroll: true }); } catch (e) {} }, 140);
   }
