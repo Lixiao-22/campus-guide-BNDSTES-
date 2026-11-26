@@ -600,7 +600,7 @@
       $('#aiSend').disabled = true;
       const tip = document.createElement('p');
       tip.className = 'ai-offnote';
-      tip.textContent = aiGet('err', '');
+      tip.textContent = aiGet('offline', aiGet('err', ''));
       $('#aiSugs').hidden = true;
       $('#aiLog').appendChild(tip);
     }
